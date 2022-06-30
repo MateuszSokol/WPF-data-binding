@@ -1,0 +1,80 @@
+﻿<Window x:Class="WpfZad3MustBeCorrect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfZad3MustBeCorrect"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:PersonModel x:Key="person"/>
+        <Style TargetType="TextBlock" x:Key="basicTextBlockStyle">
+            <Setter Property="Margin" Value="10"></Setter>
+
+
+        </Style>
+      
+
+
+    </Window.Resources>
+    
+        <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <TextBlock Text="Podaj imie i nazwisko" Style="{StaticResource basicTextBlockStyle}"></TextBlock>
+            </DockPanel>
+
+            <DockPanel HorizontalAlignment="Right" LastChildFill="False">
+                <TextBlock Text="Podaj Date urodzin" Style="{StaticResource basicTextBlockStyle}"></TextBlock>
+            </DockPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <DockPanel HorizontalAlignment="Right">
+                <TextBlock Text="Twoje pierwsze imie: " Style="{StaticResource basicTextBlockStyle}"></TextBlock>
+
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <TextBlock Text="Twoje nazwisko: " Style="{StaticResource basicTextBlockStyle}"></TextBlock>
+
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <TextBlock Text="Twoj wiek: " Style="{StaticResource basicTextBlockStyle}"></TextBlock>
+
+            </DockPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" DataContext="{Binding Source={StaticResource person}}">
+            <DockPanel HorizontalAlignment="Left">
+                <TextBlock Text="{Binding FirstName}" Style="{StaticResource basicTextBlockStyle}" ></TextBlock>
+
+            </DockPanel>
+
+            <DockPanel HorizontalAlignment="Left">
+                <TextBlock Text="{Binding LastName}" Style="{StaticResource basicTextBlockStyle}" ></TextBlock>
+
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Left">
+                <TextBlock Text="{Binding Age}" Style="{StaticResource basicTextBlockStyle}"/>
+            </DockPanel>
+        </StackPanel>
+                
+        <StackPanel DataContext="{Binding Source={StaticResource person} ,UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1">
+            <TextBox Height="25" Text="{Binding Name}" Background="Snow" Margin="5"></TextBox>
+            <TextBox Text ="{Binding Age}" Height="25" Margin="5"></TextBox>
+
+        </StackPanel>
+    </Grid>
+</Window>

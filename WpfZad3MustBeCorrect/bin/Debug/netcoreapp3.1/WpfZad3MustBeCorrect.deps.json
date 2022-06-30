@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "WpfZad3MustBeCorrect/1.0.0": {
+        "runtime": {
+          "WpfZad3MustBeCorrect.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WpfZad3MustBeCorrect/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
